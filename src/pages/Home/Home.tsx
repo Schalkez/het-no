@@ -43,7 +43,7 @@ export const Home: FC = () => {
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl md:text-3xl font-bold text-blue-600">
-            Chia Tiền Đi Chơi
+            Hết nợ
           </h1>
           <button
             className="bg-red-500 text-white px-3 py-1 rounded-md text-sm md:text-base cursor-pointer hover:bg-red-600"
