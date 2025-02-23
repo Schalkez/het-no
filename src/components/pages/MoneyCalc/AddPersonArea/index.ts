@@ -1,0 +1,1 @@
+export { AddPersonArea } from "./AddPersonArea";
