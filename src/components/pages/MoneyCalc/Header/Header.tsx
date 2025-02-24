@@ -7,8 +7,12 @@ export const Header: FC = memo(() => {
 
   return (
     <div className="flex justify-between items-center mb-6">
-      <h1 className="font-montserrat italic text-3xl font-bold">
-        <div className="flex items-center space-x-3">CHIA TIỀN</div>
+      <h1
+        style={{ fontFamily: "Anton, serif" }}
+        className="flex gap-2 italic text-3xl font-bold"
+      >
+        <img width={30} height={30} src="/banana.svg" alt="banana" />
+        <div className="flex items-center space-x-3">CHIA TIỀN NHÓM</div>
       </h1>
       <Button
         variant="destructive"

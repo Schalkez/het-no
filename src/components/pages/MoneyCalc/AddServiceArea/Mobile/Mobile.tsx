@@ -9,16 +9,16 @@ import { useMoneyCalcStore } from "@/store/store";
 export const Mobile: FC = () => {
   const {
     newService,
-    setNewService,
     costInputRef,
-    handleAddServiceClick,
-    handleCostKeyDown,
-    isAddServiceSheetOpen,
-    toggleAddServiceSheet,
-    serviceNameInputRef,
+    setNewService,
     handleAddService,
-    setIsAddServiceSheetOpen,
     resetServiceCost,
+    handleCostKeyDown,
+    serviceNameInputRef,
+    handleAddServiceClick,
+    toggleAddServiceSheet,
+    isAddServiceSheetOpen,
+    setIsAddServiceSheetOpen,
   } = useMoneyCalcStore();
 
   const handleCloseSheet = useCallback(() => {

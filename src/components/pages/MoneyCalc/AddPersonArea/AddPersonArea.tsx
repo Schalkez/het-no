@@ -7,12 +7,12 @@ import { FaTimes } from "react-icons/fa";
 
 export const AddPersonArea: FC = memo(() => {
   const {
+    people,
     newPerson,
+    addPerson,
     setNewPerson,
     personInputRef,
-    addPerson,
     handleRemovePerson,
-    people,
   } = useMoneyCalcStore();
 
   return (

@@ -9,14 +9,14 @@ import { Person } from "./Person";
 
 export const ServiceList: FC = memo(() => {
   const {
-    services,
     people,
+    services,
     contributions,
+    handleRemoveService,
+    toggleAddServiceSheet,
     handleUpdateServiceName,
     handleUpdateServiceCost,
     handleContributionChange,
-    handleRemoveService,
-    toggleAddServiceSheet,
   } = useMoneyCalcStore();
 
   const handleTickAll = (serviceName: string, checked: boolean) => {

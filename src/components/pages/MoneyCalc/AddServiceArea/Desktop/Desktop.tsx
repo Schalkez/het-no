@@ -9,12 +9,12 @@ import { useMoneyCalcStore } from "@/store/store";
 export const Desktop: FC = () => {
   const {
     newService,
-    setNewService,
     costInputRef,
-    handleAddServiceClick,
-    serviceNameInputRef,
-    handleCostKeyDown,
+    setNewService,
     resetServiceCost,
+    handleCostKeyDown,
+    serviceNameInputRef,
+    handleAddServiceClick,
   } = useMoneyCalcStore();
 
   return (
