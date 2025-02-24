@@ -1,0 +1,7 @@
+# wrangler.toml
+
+name = "het-no"  
+main = "src/main.ts"
+compatibility_date = "2025-02-23" 
+
+route = "chiatien.org/*" 
