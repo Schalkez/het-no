@@ -5,3 +5,9 @@ main = "src/main.tsx"
 compatibility_date = "2025-02-23" 
 
 route = "chiatien.org/*" 
+
+[build]
+  upload = { format = "modules" }
+
+[build.options]
+  external = ["tailwindcss"] 
