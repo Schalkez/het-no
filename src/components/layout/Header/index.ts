@@ -1,1 +1,1 @@
-export { Header, type ForwardRefProps } from "./Header";
+export { Header } from "./Header";
