@@ -11,17 +11,6 @@ export const Home: FC = () => {
         keywords="chia tiền nhóm, tính toán chia tiền, ứng dụng chia tiền, chia tiền hội nhóm, công cụ chia tiền"
         canonicalUrl="https://chiatien.org"
       />
-      <h1>Chia Tiền Nhóm Dễ Dàng</h1>
-      <p>Công cụ giúp bạn chia tiền nhanh chóng và công bằng cho hội nhóm.</p>
-
-      <section>
-        <h2>Cách Chia Tiền Nhóm Chính Xác</h2>
-        <p>
-          Chỉ cần nhập tổng số tiền và số người trong nhóm, ứng dụng sẽ tự động
-          tính toán số tiền mỗi người cần góp. Phù hợp cho các buổi ăn uống, du
-          lịch, hoặc bất kỳ hoạt động chung nào!
-        </p>
-      </section>
       <MoneyCalc />
     </>
   );
