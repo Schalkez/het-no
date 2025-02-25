@@ -32,7 +32,7 @@ export const ServiceList: FC = memo(() => {
   return (
     <Card>
       <CardHeader>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-10">
           <CardTitle>Danh Sách Dịch Vụ</CardTitle>
           <Button
             className="md:hidden cursor-pointer whitespace-nowrap"

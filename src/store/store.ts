@@ -9,44 +9,44 @@ interface State {
   people: string[];
   newService: Service;
   services: Service[];
-  contributions: Record<string, Record<string, Contribution>>;
   error: string | null;
   isResultSheetOpen: boolean;
+  transactions: Transaction[];
   isAddServiceSheetOpen: boolean;
   totals: Record<string, number>;
-  transactions: Transaction[];
   costInputRef: { current: HTMLInputElement | null };
-  serviceNameInputRef: { current: HTMLInputElement | null };
   personInputRef: { current: HTMLInputElement | null };
+  serviceNameInputRef: { current: HTMLInputElement | null };
+  contributions: Record<string, Record<string, Contribution>>;
 }
 
 interface Actions {
-  setNewPerson: (name: string) => void;
-  setNewService: (value: React.SetStateAction<Service>) => void;
-  setIsAddServiceSheetOpen: (open: boolean) => void;
-  handleAddPerson: (nameToAdd: string) => void;
-  addPerson: (nameToAdd: string) => void;
-  handleRemovePerson: (person: string) => void;
-  handleResetAll: () => void;
-  handleAddService: () => void;
-  handleRemoveService: (id: string) => void;
+  handleCostKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   handleUpdateServiceName: (id: string, newName: string) => void;
   handleUpdateServiceCost: (id: string, newCost: number) => void;
+  setNewService: (value: React.SetStateAction<Service>) => void;
+  setIsAddServiceSheetOpen: (open: boolean) => void;
+  handleRemovePerson: (person: string) => void;
+  handleAddPerson: (nameToAdd: string) => void;
+  handleRemoveService: (id: string) => void;
+  addPerson: (nameToAdd: string) => void;
+  setNewPerson: (name: string) => void;
+  toggleAddServiceSheet: () => void;
+  handleAddServiceClick: () => void;
+  toggleResultSheet: () => void;
+  resetServiceCost: () => void;
+  handleAddService: () => void;
+  handleResetAll: () => void;
   handleContributionChange: (
     serviceName: string,
     person: string,
     field: keyof Contribution,
     value: boolean | number
   ) => void;
-  handleCostKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  toggleResultSheet: () => void;
-  toggleAddServiceSheet: () => void;
-  resetServiceCost: () => void;
-  handleAddServiceClick: () => void;
 }
 
 export const useMoneyCalcStore = create<State & Actions>((set, get) => {
-  const isAddingService = { current: false }; // Thay useMemo bằng object thông thường
+  const isAddingService = { current: false };
 
   const showError = (message: string) => {
     set({ error: message });

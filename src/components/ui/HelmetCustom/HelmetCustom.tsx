@@ -13,7 +13,7 @@ export const HelmetCustom: FC<Props> = ({
   title = "Chia Tiền Nhóm - Tính Toán Nhanh Chóng",
   description = "Ứng dụng giúp bạn chia tiền công bằng cho nhóm bạn bè, hội nhóm khi góp tiền chung. Dễ dùng, chính xác và nhanh chóng!",
   keywords = "chia tiền, tính toán nhóm, góp tiền chung, hội nhóm, ứng dụng chia tiền",
-  ogImage = "/logo.svg",
+  ogImage = "/chia-tien.png",
   canonicalUrl,
 }) => {
   const isBrowser = typeof window !== "undefined";

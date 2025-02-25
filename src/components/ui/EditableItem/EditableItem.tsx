@@ -55,7 +55,7 @@ export const EditableItem: FC<Props> = ({
   };
 
   return (
-    <div className="flex justify-between items-center mb-2">
+    <div className="flex justify-between items-center gap-10 mb-2">
       <div>
         {isEditingName ? (
           <div className="flex gap-2 items-center">

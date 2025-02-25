@@ -57,7 +57,7 @@ export const BottomSheet: FC<BottomSheetProps> = ({
             className="fixed bottom-0 left-0 right-0 bg-white rounded-t-lg p-4 max-h-[80vh] overflow-y-auto z-50 md:hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex justify-between items-center mb-4">
+            <div className="flex justify-between items-center gap-10 mb-4">
               <h2 className="text-lg font-semibold">{title}</h2>
               <Button variant="ghost" onClick={onClose}>
                 <FaTimes />
