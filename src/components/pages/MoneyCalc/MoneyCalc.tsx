@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { Header } from "./Header";
 import { AddPersonArea } from "./AddPersonArea";
 import { AddServiceArea } from "./AddServiceArea";
 import { ServiceList } from "./ServiceList";
@@ -12,8 +11,6 @@ export const MoneyCalc: FC = () => {
   return (
     <div className="bg-gray-100 min-h-screen p-4 md:p-6 pb-40 md:pb-6 relative">
       <div className="max-w-4xl mx-auto">
-        <Header />
-
         {error && (
           <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded-md shadow-md z-20">
             {error}
