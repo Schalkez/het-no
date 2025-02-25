@@ -5,11 +5,7 @@ export default function ChiaTienDiChoi() {
   return (
     <>
       <Header />
-      <div
-        style={{
-          height: 80,
-        }}
-      />
+      <div className="h-16 md:h-20" />
       <Home />
     </>
   );
