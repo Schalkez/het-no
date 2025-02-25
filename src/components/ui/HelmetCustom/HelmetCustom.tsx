@@ -16,24 +16,33 @@ export const HelmetCustom: FC<Props> = ({
   ogImage = "/logo.svg",
   canonicalUrl,
 }) => {
-  const baseUrl =
-    typeof window !== "undefined"
-      ? window.location.origin
-      : "https://chiatien.org";
+  const isBrowser = typeof window !== "undefined";
+  const baseUrl = isBrowser ? window.location.origin : "https://chiatien.org";
+  const currentUrl =
+    canonicalUrl ||
+    (isBrowser ? `${baseUrl}${window.location.pathname}` : baseUrl);
 
-  const dynamicOgImage = ogImage.startsWith("http")
-    ? ogImage
-    : `${baseUrl}${ogImage}`;
-  const currentUrl = canonicalUrl || `${baseUrl}${window.location.pathname}`;
+  const dynamicOgImage =
+    ogImage && ogImage.startsWith("http") ? ogImage : `${baseUrl}${ogImage}`;
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "Chia Tiền Nhóm",
+    name: "Chia Tiền Nhóm Dễ Dàng",
     operatingSystem: "Web",
-    applicationCategory: "FinanceApplication",
+    applicationCategory: "FinancialApplication",
     description: description,
     url: currentUrl,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "VND",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Chia Tiền Nhóm Dễ Dàng",
+      url: baseUrl,
+    },
   };
 
   return (
@@ -66,5 +75,3 @@ export const HelmetCustom: FC<Props> = ({
     </Helmet>
   );
 };
-
-export default HelmetCustom;
