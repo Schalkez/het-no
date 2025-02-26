@@ -17,7 +17,9 @@ export const HelmetCustom: FC<Props> = ({
   canonicalUrl,
 }) => {
   const isBrowser = typeof window !== "undefined";
-  const baseUrl = isBrowser ? window.location.origin : "https://chiatien.org";
+  const baseUrl = isBrowser
+    ? window.location.origin
+    : "https://www.chiatien.org";
   const currentUrl =
     canonicalUrl ||
     (isBrowser ? `${baseUrl}${window.location.pathname}` : baseUrl);
