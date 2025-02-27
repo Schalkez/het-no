@@ -9,7 +9,7 @@ export const Home: FC = () => {
         title="Chia Tiền Nhóm - Tính Toán Công Bằng & Nhanh Chóng"
         description="Tính toán và chia tiền công bằng cho nhóm bạn bè, hội nhóm chỉ trong vài giây. Nhập số tiền, số người, và xem kết quả ngay!"
         keywords="chia tiền nhóm, tính toán chia tiền, ứng dụng chia tiền, chia tiền hội nhóm, công cụ chia tiền"
-        canonicalUrl="https://www.chiatien.org"
+        canonicalUrl="https://chiatien.org"
       />
       <MoneyCalc />
     </>
