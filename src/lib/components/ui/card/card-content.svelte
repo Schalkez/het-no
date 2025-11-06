@@ -3,7 +3,7 @@
 
   export let className = '';
 
-  const baseClass = 'p-6 pt-0';
+const baseClass = 'p-6 pt-6';
 </script>
 
 <div class={cn(baseClass, className)} {...$$restProps}>

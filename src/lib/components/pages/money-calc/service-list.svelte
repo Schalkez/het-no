@@ -9,6 +9,7 @@
   import type { Service } from '$lib/models/service';
   import { moneyCalcStore } from '$lib/stores/money-calc';
   import { formatNumber, parseNumber } from '$lib/utils/number';
+  import ListCheckIcon from '$lib/components/ui/icons/list-check.svelte';
 
   const buildPersonCheckboxId = (serviceId: string, personName: string) =>
     `service-${serviceId}-person-${personName.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
@@ -73,21 +74,30 @@
   const formatCurrency = (value: number): string => formatNumber(value ?? 0);
 </script>
 
-<Card>
-  <CardHeader className="flex-row items-center justify-between">
-    <div>
-      <CardTitle>Danh sách dịch vụ</CardTitle>
-      {#if $moneyCalcStore.services.length > 0}
-        <p class="text-sm text-muted-foreground">
-          Quản lý khoản chi, tick người sử dụng và nhập số tiền đã trả.
-        </p>
-      {/if}
+<Card className="shadow-xl shadow-black/5" data-tour="service-list">
+  <CardHeader className="flex-row items-center justify-between gap-3 border-b border-border/60 bg-gradient-to-r from-secondary/20 via-secondary/10 to-transparent pb-4">
+    <div class="flex items-center gap-3">
+      <div class="hidden h-11 w-11 items-center justify-center rounded-xl bg-secondary/25 text-secondary-foreground md:flex">
+        <ListCheckIcon size={22} />
+      </div>
+      <div class="space-y-1">
+        <CardTitle>Danh sách dịch vụ</CardTitle>
+        {#if $moneyCalcStore.services.length > 0}
+          <p class="text-sm text-muted-foreground">
+            Quản lý khoản chi, tick người sử dụng và nhập số tiền đã trả.
+          </p>
+        {:else}
+          <p class="text-sm text-muted-foreground">
+            Ghi lại các khoản chi tiêu chung để chia tiền rõ ràng.
+          </p>
+        {/if}
+      </div>
     </div>
     <Button className="md:hidden" on:click={() => moneyCalcStore.setIsAddServiceSheetOpen(true)}>
       + Thêm dịch vụ
     </Button>
   </CardHeader>
-  <CardContent>
+  <CardContent className="space-y-4">
     {#if $moneyCalcStore.services.length === 0}
       <div class="rounded-2xl border border-dashed border-border bg-muted/30 p-6 text-center">
         <h3 class="text-base font-semibold text-foreground">Chưa có dịch vụ nào được ghi lại</h3>

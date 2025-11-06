@@ -8,6 +8,7 @@
   import CardHeader from '$lib/components/ui/card/card-header.svelte';
   import CardTitle from '$lib/components/ui/card/card-title.svelte';
   import Input from '$lib/components/ui/input/input.svelte';
+  import ReceiptIcon from '$lib/components/ui/icons/receipt.svelte';
   import { moneyCalcStore } from '$lib/stores/money-calc';
   import { formatNumber, parseNumber } from '$lib/utils/number';
 
@@ -50,9 +51,15 @@
   };
 </script>
 
-<Card className="hidden md:block">
-  <CardHeader>
-    <CardTitle>Thêm dịch vụ</CardTitle>
+<Card className="hidden shadow-xl shadow-black/5 md:block" data-tour="add-service">
+  <CardHeader className="flex-row items-center gap-3 border-b border-border/60 bg-gradient-to-r from-secondary/15 via-secondary/10 to-transparent pb-4">
+    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-secondary/25 text-secondary-foreground">
+      <ReceiptIcon size={22} />
+    </div>
+    <div class="space-y-1">
+      <CardTitle>Thêm dịch vụ</CardTitle>
+      <p class="text-sm text-muted-foreground">Ghi tên khoản chi và số tiền đã chi.</p>
+    </div>
   </CardHeader>
   <CardContent className="space-y-4">
     <Input
@@ -113,7 +120,8 @@
       {#if isAddingService}
         Đang thêm...
       {:else}
-        + Thêm dịch vụ
+        <ReceiptIcon size={18} />
+        Thêm dịch vụ
       {/if}
     </Button>
   </CardContent>
@@ -131,7 +139,7 @@
       on:click={closeMobileSheet}
       on:keydown={handleOverlayKeyDown}
     ></div>
-    <div class="relative w-full rounded-t-2xl bg-background p-4 shadow-lg">
+    <div class="relative w-full rounded-t-3xl bg-background/95 p-4 shadow-xl backdrop-blur" data-tour="add-service">
       <div class="mb-4 flex items-center justify-between">
         <h2 class="text-lg font-semibold">Thêm dịch vụ</h2>
         <Button variant="ghost" size="sm" on:click={closeMobileSheet}>×</Button>
@@ -197,7 +205,8 @@
         {#if isAddingService}
           Đang thêm...
         {:else}
-          + Thêm dịch vụ
+          <ReceiptIcon size={18} />
+          Thêm dịch vụ
         {/if}
       </Button>
     </div>

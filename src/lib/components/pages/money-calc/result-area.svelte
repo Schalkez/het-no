@@ -4,6 +4,7 @@
   import CardContent from '$lib/components/ui/card/card-content.svelte';
   import CardHeader from '$lib/components/ui/card/card-header.svelte';
   import CardTitle from '$lib/components/ui/card/card-title.svelte';
+  import SparklesIcon from '$lib/components/ui/icons/sparkles.svelte';
   import { moneyCalcStore } from '$lib/stores/money-calc';
 
   const closeMobileSheet = () => {
@@ -21,11 +22,19 @@
 </script>
 
 <div class="z-20 md:static md:z-auto">
-  <Card className="hidden md:block">
-    <CardHeader>
-      <CardTitle>Kết quả chia tiền</CardTitle>
+  <Card className="hidden shadow-xl shadow-black/5 md:block" data-tour="result">
+    <CardHeader className="flex-row items-center gap-3 border-b border-border/60 bg-gradient-to-r from-emerald-100 via-emerald-50 to-transparent pb-4">
+      <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+        <SparklesIcon size={22} />
+      </div>
+      <div class="space-y-1">
+        <CardTitle>Kết quả chia tiền</CardTitle>
+        <p class="text-sm text-muted-foreground">
+          Ai cần trả thêm và ai được nhận lại sẽ hiển thị tại đây.
+        </p>
+      </div>
     </CardHeader>
-    <CardContent>
+    <CardContent className="space-y-6">
       {#if Object.keys($moneyCalcStore.totals).length === 0}
         <p class="text-sm text-muted-foreground">Chưa có kết quả</p>
       {:else}
@@ -72,11 +81,12 @@
       className="w-full rounded-2xl border border-border bg-card px-4 py-3 text-base font-semibold text-foreground shadow-sm"
       on:click={() => moneyCalcStore.toggleResultSheet()}
     >
+      <SparklesIcon size={18} />
       Kết quả chia tiền
     </Button>
 
     {#if $moneyCalcStore.isResultSheetOpen}
-      <div class="fixed inset-0 z-40 flex items-end">
+      <div class="fixed inset-0 z-40 flex items-end" data-tour="result">
         <div
           class="absolute inset-0 bg-black/60"
           role="button"

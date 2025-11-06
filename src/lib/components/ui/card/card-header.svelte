@@ -3,7 +3,7 @@
 
   export let className = '';
 
-  const baseClass = 'flex flex-col space-y-1.5 p-6';
+  const baseClass = 'flex flex-col space-y-1.5 p-6 rounded-t-3xl overflow-hidden';
 </script>
 
 <div class={cn(baseClass, className)} {...$$restProps}>

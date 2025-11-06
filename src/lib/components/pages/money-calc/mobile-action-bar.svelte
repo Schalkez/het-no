@@ -1,5 +1,7 @@
 <script lang="ts">
   import Button from '$lib/components/ui/button/button.svelte';
+  import ReceiptIcon from '$lib/components/ui/icons/receipt.svelte';
+  import SparklesIcon from '$lib/components/ui/icons/sparkles.svelte';
   import { moneyCalcStore } from '$lib/stores/money-calc';
 
   const openServiceSheet = () => {
@@ -19,12 +21,16 @@
   <div
     class="pointer-events-auto mx-auto mb-4 flex w-[calc(100%-1.5rem)] max-w-4xl items-center gap-3 rounded-2xl border border-border bg-background/95 px-4 py-3 shadow-xl backdrop-blur"
   >
-    <Button className="flex-1" on:click={openServiceSheet}>+ Thêm dịch vụ</Button>
+    <Button className="flex-1" on:click={openServiceSheet}>
+      <ReceiptIcon size={18} />
+      Thêm dịch vụ
+    </Button>
     <Button
       variant={$moneyCalcStore.isResultSheetOpen ? 'secondary' : 'outline'}
       className="whitespace-nowrap"
       on:click={openResultSheet}
     >
+      <SparklesIcon size={18} />
       {$moneyCalcStore.isResultSheetOpen ? 'Đóng kết quả' : 'Kết quả'}
     </Button>
   </div>

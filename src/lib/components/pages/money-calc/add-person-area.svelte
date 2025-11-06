@@ -7,6 +7,7 @@
   import CardHeader from '$lib/components/ui/card/card-header.svelte';
   import CardTitle from '$lib/components/ui/card/card-title.svelte';
   import Input from '$lib/components/ui/input/input.svelte';
+  import UserPlusIcon from '$lib/components/ui/icons/user-plus.svelte';
   import { moneyCalcStore } from '$lib/stores/money-calc';
 
   let personInput: HTMLInputElement | null = null;
@@ -22,12 +23,20 @@
   });
 </script>
 
-<Card>
-  <CardHeader>
-    <CardTitle>Người tham gia</CardTitle>
+<Card className="shadow-xl shadow-black/5" data-tour="add-people">
+  <CardHeader className="flex-row items-center gap-3 border-b border-border/60 bg-gradient-to-r from-primary/15 via-primary/5 to-transparent pb-4">
+    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-primary">
+      <UserPlusIcon size={22} />
+    </div>
+    <div class="space-y-1">
+      <CardTitle>Người tham gia</CardTitle>
+      <p class="text-sm text-muted-foreground">
+        Thêm thành viên để bắt đầu chia chi phí cho nhóm.
+      </p>
+    </div>
   </CardHeader>
-  <CardContent>
-    <div class="mb-5 flex flex-wrap items-center gap-3">
+  <CardContent className="space-y-5">
+    <div class="flex flex-wrap items-center gap-3">
       <Input
         bind:element={personInput}
         className="flex-1 min-w-[220px] md:h-11 md:text-base"
@@ -53,7 +62,8 @@
         {#if isAddingPerson}
           Đang thêm...
         {:else}
-          + Thêm
+          <UserPlusIcon size={18} />
+          Thêm người
         {/if}
       </Button>
     </div>
@@ -83,7 +93,7 @@
         {/each}
       </ul>
     {:else}
-      <div class="rounded-lg border border-dashed border-border bg-muted/30 p-4 text-sm">
+      <div class="rounded-xl border border-dashed border-border bg-muted/30 p-5 text-sm">
         <p class="font-semibold text-foreground">Chưa có người tham gia nào.</p>
         <p class="mt-1 text-muted-foreground">
           Nhập tên ở ô bên trên rồi nhấn Enter hoặc bấm nút “+ Thêm” để lưu. Bạn có thể dán nhiều

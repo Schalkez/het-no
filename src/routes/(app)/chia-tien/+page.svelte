@@ -15,8 +15,9 @@
   />
 </svelte:head>
 
-<main class="relative min-h-screen bg-[#F3F4F6] pb-40 pt-10 md:pt-20">
-  <div class="mx-auto max-w-4xl px-4 pb-24 md:px-6 md:pb-10">
+<main class="relative min-h-screen bg-gradient-to-b from-[#F6F7FB] via-[#EEF2F7] to-[#E6ECFF] pb-40 pt-10 md:pt-20">
+  <div class="pointer-events-none absolute inset-x-0 top-24 hidden h-64 max-w-5xl -translate-x-1/2 rounded-full bg-gradient-to-r from-primary/10 via-transparent to-secondary/10 blur-3xl md:left-1/2 md:block"></div>
+  <div class="relative mx-auto max-w-4xl px-4 pb-24 md:px-6 md:pb-10">
     <OnboardingHero />
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
       <AddPersonArea />
