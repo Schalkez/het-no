@@ -1,1 +1,0 @@
-export { ResultArea } from "./ResultArea";
