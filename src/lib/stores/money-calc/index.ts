@@ -37,25 +37,59 @@ export const createMoneyCalcStore = (): MoneyCalcStore => {
     toast.error(message);
   };
 
+  const updateStatus = (partialStatus: Partial<MoneyCalcState['status']>) => {
+    store.update((state) => ({
+      ...state,
+      status: {
+        ...state.status,
+        ...partialStatus
+      }
+    }));
+  };
+
+  const showSuccess = (message: string, description?: string) => {
+    toast.success(message, description ? { description } : undefined);
+  };
+
+  const confirmReset = (onConfirm: () => void) => {
+    toast('Bạn chắc chắn muốn reset?', {
+      description: 'Toàn bộ người, dịch vụ và kết quả sẽ bị xoá.',
+      action: {
+        label: 'Đồng ý',
+        onClick: onConfirm
+      },
+      cancel: {
+        label: 'Huỷ'
+      }
+    });
+  };
+
   const peopleActions = createPeopleActions({
     directUpdate,
     updateState,
     showError,
-    getState
+    showSuccess,
+    getState,
+    updateStatus
   });
 
   const serviceActions = createServiceActions({
     directUpdate,
     updateState,
     showError,
+    showSuccess,
     getState,
-    focusServiceNameInput
+    focusServiceNameInput,
+    updateStatus
   });
 
   const resultActions = createResultActions({
     directUpdate,
     getState,
-    replaceState
+    replaceState,
+    updateStatus,
+    confirmReset,
+    showSuccess
   });
 
   return {

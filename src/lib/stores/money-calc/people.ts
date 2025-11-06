@@ -4,7 +4,9 @@ interface PeopleActionsDeps {
   directUpdate: (updater: (state: MoneyCalcState) => MoneyCalcState) => void;
   updateState: (updater: (state: MoneyCalcState) => MoneyCalcState) => void;
   showError: (message: string) => void;
+  showSuccess: (message: string) => void;
   getState: () => MoneyCalcState;
+  updateStatus: (status: Partial<MoneyCalcState['status']>) => void;
 }
 
 export const createPeopleActions = (deps: PeopleActionsDeps) => {
@@ -39,25 +41,33 @@ export const createPeopleActions = (deps: PeopleActionsDeps) => {
       return;
     }
 
-    deps.updateState((state) => {
-      const updatedPeople = [...state.people, trimmedName];
-      const updatedContributions = Object.fromEntries(
-        Object.entries(state.contributions).map(([serviceName, contributions]) => [
-          serviceName,
-          {
-            ...contributions,
-            [trimmedName]: { used: false, paid: 0 }
-          }
-        ])
-      );
+    deps.updateStatus({ isAddingPerson: true });
 
-      return {
-        ...state,
-        people: updatedPeople,
-        contributions: updatedContributions,
-        newPerson: ''
-      };
-    });
+    try {
+      deps.updateState((state) => {
+        const updatedPeople = [...state.people, trimmedName];
+        const updatedContributions = Object.fromEntries(
+          Object.entries(state.contributions).map(([serviceName, contributions]) => [
+            serviceName,
+            {
+              ...contributions,
+              [trimmedName]: { used: false, paid: 0 }
+            }
+          ])
+        );
+
+        return {
+          ...state,
+          people: updatedPeople,
+          contributions: updatedContributions,
+          newPerson: ''
+        };
+      });
+
+      deps.showSuccess(`Đã thêm ${trimmedName}`);
+    } finally {
+      deps.updateStatus({ isAddingPerson: false });
+    }
   };
 
   const addPerson = (nameToAdd: string) => {

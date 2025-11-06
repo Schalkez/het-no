@@ -13,6 +13,10 @@
 
   $: moneyCalcStore.registerPersonInput(personInput);
 
+  $: isAddingPerson = $moneyCalcStore.status.isAddingPerson;
+  $: trimmedNewPerson = $moneyCalcStore.newPerson.trim();
+  $: canSubmitPerson = trimmedNewPerson.length > 0 && !isAddingPerson;
+
   onDestroy(() => {
     moneyCalcStore.registerPersonInput(null);
   });
@@ -29,6 +33,8 @@
         className="flex-1 min-w-[220px] md:h-11 md:text-base"
         placeholder="Tên người tham gia"
         value={$moneyCalcStore.newPerson}
+        disabled={isAddingPerson}
+        aria-busy={isAddingPerson}
         on:input={(event) =>
           moneyCalcStore.setNewPerson((event.currentTarget as HTMLInputElement).value)}
         on:keydown={(event) => {
@@ -41,8 +47,14 @@
       <Button
         on:click={() => moneyCalcStore.addPerson($moneyCalcStore.newPerson)}
         className="md:h-11"
+        disabled={!canSubmitPerson}
+        aria-busy={isAddingPerson}
       >
-        + Thêm
+        {#if isAddingPerson}
+          Đang thêm...
+        {:else}
+          + Thêm
+        {/if}
       </Button>
     </div>
 

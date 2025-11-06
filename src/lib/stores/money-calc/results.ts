@@ -6,6 +6,9 @@ interface ResultActionsDeps {
   getState: () => MoneyCalcState;
   replaceState: (nextState: MoneyCalcState) => void;
   directUpdate: (updater: (state: MoneyCalcState) => MoneyCalcState) => void;
+  updateStatus: (status: Partial<MoneyCalcState['status']>) => void;
+  confirmReset: (handler: () => void) => void;
+  showSuccess: (message: string) => void;
 }
 
 export const createResultActions = (deps: ResultActionsDeps) => {
@@ -17,29 +20,41 @@ export const createResultActions = (deps: ResultActionsDeps) => {
     deps.directUpdate((state) => ({ ...state, isResultSheetOpen: open }));
   };
 
-  const handleResetAll = () => {
+  const executeReset = () => {
     const { costInput, serviceNameInput, personInput } = deps.getState();
 
-    if (costInput) {
-      costInput.value = '';
-    }
+    deps.updateStatus({ isResetting: true });
 
-    if (serviceNameInput) {
-      serviceNameInput.value = '';
-    }
+    try {
+      if (costInput) {
+        costInput.value = '';
+      }
 
-    if (personInput) {
-      personInput.value = '';
-    }
+      if (serviceNameInput) {
+        serviceNameInput.value = '';
+      }
 
-    deps.replaceState(
-      withRecomputed({
-        ...createInitialState(),
-        costInput,
-        serviceNameInput,
-        personInput
-      })
-    );
+      if (personInput) {
+        personInput.value = '';
+      }
+
+      deps.replaceState(
+        withRecomputed({
+          ...createInitialState(),
+          costInput,
+          serviceNameInput,
+          personInput
+        })
+      );
+
+      deps.showSuccess('Đã reset toàn bộ dữ liệu');
+    } finally {
+      deps.updateStatus({ isResetting: false });
+    }
+  };
+
+  const handleResetAll = () => {
+    deps.confirmReset(executeReset);
   };
 
   return {

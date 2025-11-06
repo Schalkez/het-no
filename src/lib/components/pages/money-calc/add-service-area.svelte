@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { get } from 'svelte/store';
   import { onDestroy } from 'svelte';
 
   import Button from '$lib/components/ui/button/button.svelte';
@@ -16,6 +17,11 @@
   $: moneyCalcStore.registerServiceNameInput(serviceNameInput);
   $: moneyCalcStore.registerCostInput(costInput);
 
+  $: isAddingService = $moneyCalcStore.status.isAddingService;
+  $: trimmedServiceName = $moneyCalcStore.newService.name.trim();
+  $: canSubmitService =
+    trimmedServiceName.length > 0 && $moneyCalcStore.newService.cost > 0 && !isAddingService;
+
   onDestroy(() => {
     moneyCalcStore.registerServiceNameInput(null);
     moneyCalcStore.registerCostInput(null);
@@ -24,6 +30,16 @@
   const closeMobileSheet = () => {
     moneyCalcStore.setIsAddServiceSheetOpen(false);
     moneyCalcStore.setNewService(() => ({ name: '', cost: 0, id: '' }));
+  };
+
+  const attemptAddService = () => {
+    const beforeName = get(moneyCalcStore).newService.name.trim();
+    moneyCalcStore.handleAddServiceClick();
+    const afterName = get(moneyCalcStore).newService.name.trim();
+
+    if (beforeName !== '' && afterName === '') {
+      closeMobileSheet();
+    }
   };
 
   const handleOverlayKeyDown = (event: KeyboardEvent) => {
@@ -48,6 +64,8 @@
         const target = event.currentTarget as HTMLInputElement;
         moneyCalcStore.setNewService((service) => ({ ...service, name: target.value }));
       }}
+      disabled={isAddingService}
+      aria-busy={isAddingService}
     />
 
     <div class="relative">
@@ -63,6 +81,8 @@
           moneyCalcStore.setNewService((service) => ({ ...service, cost }));
         }}
         on:keydown={moneyCalcStore.handleCostKeyDown}
+        disabled={isAddingService}
+        aria-busy={isAddingService}
       />
       {#if $moneyCalcStore.newService.cost > 0}
         <Button
@@ -84,8 +104,17 @@
       {/if}
     </div>
 
-    <Button className="w-full md:text-base" on:click={() => moneyCalcStore.handleAddServiceClick()}>
-      + Thêm dịch vụ
+    <Button
+      className="w-full md:text-base"
+      on:click={() => moneyCalcStore.handleAddServiceClick()}
+      disabled={!canSubmitService}
+      aria-busy={isAddingService}
+    >
+      {#if isAddingService}
+        Đang thêm...
+      {:else}
+        + Thêm dịch vụ
+      {/if}
     </Button>
   </CardContent>
 </Card>
@@ -119,10 +148,11 @@
           on:keydown={(event) => {
             if (event.key === 'Enter') {
               event.preventDefault();
-              moneyCalcStore.handleAddService();
-              closeMobileSheet();
+              attemptAddService();
             }
           }}
+          disabled={isAddingService}
+          aria-busy={isAddingService}
         />
         <div class="relative">
           <Input
@@ -136,6 +166,8 @@
               moneyCalcStore.setNewService((service) => ({ ...service, cost }));
             }}
             on:keydown={moneyCalcStore.handleCostKeyDown}
+            disabled={isAddingService}
+            aria-busy={isAddingService}
           />
           {#if $moneyCalcStore.newService.cost > 0}
             <Button
@@ -158,12 +190,15 @@
 
       <Button
         className="mt-6 w-full"
-        on:click={() => {
-          moneyCalcStore.handleAddServiceClick();
-          closeMobileSheet();
-        }}
+        on:click={attemptAddService}
+        disabled={!canSubmitService}
+        aria-busy={isAddingService}
       >
-        + Thêm dịch vụ
+        {#if isAddingService}
+          Đang thêm...
+        {:else}
+          + Thêm dịch vụ
+        {/if}
       </Button>
     </div>
   </div>

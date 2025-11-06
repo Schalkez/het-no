@@ -3,6 +3,12 @@ import type { Service } from '$lib/models/service';
 import type { Transaction } from '$lib/models/transaction';
 import type { Writable } from 'svelte/store';
 
+export interface MoneyCalcStatus {
+  isAddingPerson: boolean;
+  isAddingService: boolean;
+  isResetting: boolean;
+}
+
 export interface MoneyCalcState {
   newPerson: string;
   people: string[];
@@ -16,6 +22,7 @@ export interface MoneyCalcState {
   costInput: HTMLInputElement | null;
   personInput: HTMLInputElement | null;
   serviceNameInput: HTMLInputElement | null;
+  status: MoneyCalcStatus;
 }
 
 export interface MoneyCalcActions {
@@ -66,5 +73,10 @@ export const createInitialState = (): MoneyCalcState => ({
   contributions: {},
   costInput: null,
   personInput: null,
-  serviceNameInput: null
+  serviceNameInput: null,
+  status: {
+    isAddingPerson: false,
+    isAddingService: false,
+    isResetting: false
+  }
 });

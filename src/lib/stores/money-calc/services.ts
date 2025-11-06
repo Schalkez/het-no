@@ -8,8 +8,10 @@ interface ServiceActionsDeps {
   directUpdate: (updater: (state: MoneyCalcState) => MoneyCalcState) => void;
   updateState: (updater: (state: MoneyCalcState) => MoneyCalcState) => void;
   showError: (message: string) => void;
+  showSuccess: (message: string) => void;
   getState: () => MoneyCalcState;
   focusServiceNameInput: (state: MoneyCalcState) => void;
+  updateStatus: (status: Partial<MoneyCalcState['status']>) => void;
 }
 
 type ServiceUpdater =
@@ -17,7 +19,6 @@ type ServiceUpdater =
   | ((service: MoneyCalcState['newService']) => MoneyCalcState['newService']);
 
 export const createServiceActions = (deps: ServiceActionsDeps) => {
-  let isAddingService = false;
 
   const setNewService = (value: ServiceUpdater) => {
     deps.directUpdate((current) => ({
@@ -35,31 +36,32 @@ export const createServiceActions = (deps: ServiceActionsDeps) => {
   };
 
   const handleAddService = () => {
-    if (isAddingService) {
+    const stateBeforeUpdate = deps.getState();
+
+    if (stateBeforeUpdate.status.isAddingService) {
       return;
     }
 
-    isAddingService = true;
+    const trimmedName = stateBeforeUpdate.newService.name.trim();
+
+    if (trimmedName === '') {
+      deps.showError('Tên dịch vụ không được để trống');
+      return;
+    }
+
+    if (stateBeforeUpdate.services.some((service) => service.name === trimmedName)) {
+      deps.showError('Tên dịch vụ đã tồn tại');
+      return;
+    }
+
+    if (stateBeforeUpdate.newService.cost <= 0) {
+      deps.showError('Số tiền phải lớn hơn 0');
+      return;
+    }
+
+    deps.updateStatus({ isAddingService: true });
 
     try {
-      const stateBeforeUpdate = deps.getState();
-      const trimmedName = stateBeforeUpdate.newService.name.trim();
-
-      if (trimmedName === '') {
-        deps.showError('Tên dịch vụ không được để trống');
-        return;
-      }
-
-      if (stateBeforeUpdate.services.some((service) => service.name === trimmedName)) {
-        deps.showError('Tên dịch vụ đã tồn tại');
-        return;
-      }
-
-      if (stateBeforeUpdate.newService.cost <= 0) {
-        deps.showError('Số tiền phải lớn hơn 0');
-        return;
-      }
-
       const serviceEntry = {
         name: trimmedName,
         cost: Math.round(stateBeforeUpdate.newService.cost),
@@ -84,8 +86,9 @@ export const createServiceActions = (deps: ServiceActionsDeps) => {
       });
 
       deps.focusServiceNameInput(deps.getState());
+      deps.showSuccess(`Đã thêm dịch vụ "${serviceEntry.name}"`);
     } finally {
-      isAddingService = false;
+      deps.updateStatus({ isAddingService: false });
     }
   };
 

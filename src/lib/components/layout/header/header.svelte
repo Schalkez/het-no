@@ -2,6 +2,9 @@
   import { moneyCalcStore } from '$lib/stores/money-calc';
 
   const handleResetAll = moneyCalcStore.handleResetAll;
+
+  $: isResetting = $moneyCalcStore.status.isResetting;
+  $: hasData = $moneyCalcStore.people.length > 0 || $moneyCalcStore.services.length > 0;
 </script>
 
 <header class="fixed inset-x-0 top-0 z-20 bg-[#EAECEF] shadow-md shadow-gray-400">
@@ -15,8 +18,14 @@
     <button
       class="cursor-pointer rounded-md bg-destructive px-4 py-2 text-sm font-medium text-white transition hover:bg-destructive/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       on:click={handleResetAll}
+      disabled={isResetting || !hasData}
+      aria-busy={isResetting}
     >
-      Reset Toàn Bộ
+      {#if isResetting}
+        Đang reset...
+      {:else}
+        Reset Toàn Bộ
+      {/if}
     </button>
   </div>
 </header>
