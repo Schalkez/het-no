@@ -1,0 +1,1 @@
+export { BeneficiaryItem } from './BeneficiaryItem'

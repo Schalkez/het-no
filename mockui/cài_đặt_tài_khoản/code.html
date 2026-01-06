@@ -1,0 +1,273 @@
+<!doctype html>
+
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cài đặt tài khoản - SplitMoney</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Config -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#627bea',
+              'primary-hover': '#5065c7',
+              'background-light': '#f8f9fb',
+              'background-dark': '#111421',
+              'card-light': '#ffffff',
+              'card-dark': '#1e2130',
+              'text-main': '#0e101b',
+              'text-secondary': '#6b7280',
+              'border-light': '#e5e7eb',
+              'border-dark': '#374151',
+            },
+            fontFamily: {
+              display: ['Inter', 'sans-serif'],
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              '2xl': '1rem',
+              full: '9999px',
+            },
+          },
+        },
+      }
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-text-main dark:text-white font-display transition-colors duration-200"
+  >
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+      <!-- Top Navigation -->
+      <header
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark px-6 py-3 shadow-sm"
+      >
+        <div class="flex items-center gap-4">
+          <div class="size-8 text-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-3xl">account_balance_wallet</span>
+          </div>
+          <h2 class="text-xl font-bold leading-tight tracking-[-0.015em] hidden sm:block">
+            SplitMoney
+          </h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-4 items-center">
+          <button
+            class="p-2 rounded-full hover:bg-background-light dark:hover:bg-gray-800 text-text-secondary transition-colors"
+          >
+            <span class="material-symbols-outlined">notifications</span>
+          </button>
+          <div
+            class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20"
+            data-alt="User profile avatar small"
+            style="
+              background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8MrqHB29It1vaIT5Sh4Muzcu9YpSBuLf2rJV5g-DfvzkItiiOrRMteDkUrCw2zY_-cLGJGWBlUugWu52uAbPHyoX3x40zvtQ9gahtmSPNdvzLX-SQSb4j9Zm2zQTKr-UQsi6yo4j5Ff-vybQNCkPoKKkTTGXvU_AfPtsYsI3ghHQxH0y0xG1kVV9ykX1vpAI42W7aMtwmOzv3W-nk4tkyeR0QiczqKXYZWHySAYl1OFyF2AY_B3PtilEsbQ0P_b0akwzymrR2LTU');
+            "
+          ></div>
+        </div>
+      </header>
+      <!-- Main Content -->
+      <main
+        class="layout-container flex h-full grow flex-col w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+      >
+        <!-- Dashboard Link -->
+        <div class="flex justify-start mb-6">
+          <button
+            class="group flex items-center justify-center rounded-lg h-10 px-0 bg-transparent text-text-secondary hover:text-primary transition-colors gap-2 text-sm font-semibold leading-normal"
+          >
+            <span
+              class="material-symbols-outlined group-hover:-translate-x-1 transition-transform"
+              style="font-size: 20px"
+              >arrow_back</span
+            >
+            <span>Dashboard</span>
+          </button>
+        </div>
+        <!-- Page Heading -->
+        <div class="flex flex-col gap-2 mb-8">
+          <h1 class="text-3xl sm:text-4xl font-black leading-tight tracking-[-0.033em]">
+            Cài đặt tài khoản
+          </h1>
+          <p class="text-text-secondary text-base">
+            Quản lý thông tin cá nhân và bảo mật tài khoản của bạn.
+          </p>
+        </div>
+        <!-- Profile Section -->
+        <section
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden mb-8"
+        >
+          <div class="px-6 py-5 border-b border-border-light dark:border-border-dark">
+            <h2 class="text-xl font-bold leading-tight">Hồ sơ</h2>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start">
+            <!-- Avatar Uploader -->
+            <div class="flex flex-col items-center gap-3 shrink-0 mx-auto md:mx-0">
+              <div class="relative group cursor-pointer">
+                <div
+                  class="bg-center bg-no-repeat bg-cover rounded-full size-32 shadow-md border-4 border-white dark:border-gray-700"
+                  data-alt="Large user profile picture"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4R4jPyf1cGp4hUJKnCrmN2tzvIUehzexqU4MyYBeQUO0R4zXKGY9prwINjnXvG7LQmxWW07RiRv2Ql_SvlaTfJrX1MqUcKxQwFPXprsVzCQ3QPIudQyBwLK2TqnJLuRQpHPRkjUIQ4joQTUaqZOrrwA3EwvIGdrW924tqGg8M927lHFNG-qNdlyeuZoI_e9b0MYeeRP2hpAB3ame4Ygo6F95HCXxlD3O8ULKZHDSI5B7xxnaxoSxEWXlG8jWhmvA3oUpoSQybykU');
+                  "
+                ></div>
+                <div
+                  class="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <span class="material-symbols-outlined text-white text-3xl">photo_camera</span>
+                </div>
+                <div
+                  class="absolute bottom-1 right-1 bg-white dark:bg-gray-800 p-1.5 rounded-full shadow-sm border border-border-light dark:border-gray-600 text-primary flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-sm font-bold">edit</span>
+                </div>
+              </div>
+              <span class="text-sm font-medium text-primary cursor-pointer hover:underline"
+                >Thay đổi ảnh</span
+              >
+            </div>
+            <!-- Form Fields -->
+            <div class="flex-1 w-full space-y-6">
+              <!-- Name Input -->
+              <div class="flex flex-col gap-2">
+                <label
+                  class="text-sm font-semibold text-text-secondary dark:text-gray-400"
+                  for="name"
+                  >Tên hiển thị</label
+                >
+                <input
+                  class="w-full h-11 px-4 rounded-lg border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-800 text-text-main dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  id="name"
+                  type="text"
+                  value="An Nguyen"
+                />
+              </div>
+              <!-- Email Input (Disabled) -->
+              <div class="flex flex-col gap-2">
+                <label
+                  class="text-sm font-semibold text-text-secondary dark:text-gray-400"
+                  for="email"
+                  >Email</label
+                >
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                    <span class="material-symbols-outlined" style="font-size: 20px">mail</span>
+                  </span>
+                  <input
+                    class="w-full h-11 pl-10 pr-4 rounded-lg border border-border-light dark:border-gray-700 bg-gray-100 dark:bg-gray-900 text-gray-500 cursor-not-allowed select-none"
+                    disabled=""
+                    id="email"
+                    type="email"
+                    value="an@example.com"
+                  />
+                </div>
+                <p class="text-xs text-text-secondary">
+                  Để thay đổi email, vui lòng liên hệ bộ phận hỗ trợ.
+                </p>
+              </div>
+              <!-- Action Button -->
+              <div class="pt-2">
+                <button
+                  class="flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold h-11 px-8 rounded-lg shadow-sm shadow-primary/30 transition-all active:scale-95"
+                >
+                  <span class="material-symbols-outlined text-sm">save</span>
+                  Lưu thay đổi
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Linked Accounts Section -->
+        <section
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden mb-8"
+        >
+          <div class="px-6 py-5 border-b border-border-light dark:border-border-dark">
+            <h2 class="text-xl font-bold leading-tight">Liên kết tài khoản</h2>
+          </div>
+          <div class="p-0">
+            <!-- Linked Item -->
+            <div
+              class="flex flex-col sm:flex-row sm:items-center justify-between p-6 hover:bg-background-light/50 dark:hover:bg-gray-800/50 transition-colors"
+            >
+              <div class="flex items-center gap-4 mb-4 sm:mb-0">
+                <div
+                  class="size-12 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center overflow-hidden p-2"
+                >
+                  <!-- Google Icon Placeholder -->
+                  <img
+                    alt="Google Logo"
+                    class="w-full h-full"
+                    data-alt="Google G logo"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZm4CyaH3IEMXRBAU_mfTjlwpRVy6tC7YtY6dH5bGoy-pXF7jS64FyGYZFC1p0T8hwDtZrMM0QeQjZBgfEjtj6qCYwvCv4fHRoIyujeexUUCL-_r6_vlgkldOdyHOahwhsLAdNHvuZ2sPpWLeMLIP16YFe5PaYhW_pE1k9zv8x3sNkQQTVyZ-XYSf4y4xXmteu_YHWl3W_AWt6PkyBFGqDK3rt9SebXeMKe8ZJxtKbKfNBUss2mQT4rPh0EAjXdcPm3ySbyM_M9gQ"
+                  />
+                </div>
+                <div class="flex flex-col">
+                  <p class="text-base font-bold text-text-main dark:text-white">Google</p>
+                  <p class="text-sm text-text-secondary">an@gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-2 text-green-600 bg-green-50 dark:bg-green-900/20 px-3 py-1.5 rounded-full border border-green-100 dark:border-green-900/30 self-start sm:self-auto"
+              >
+                <span class="material-symbols-outlined text-lg">check_circle</span>
+                <span class="text-sm font-semibold">Đã liên kết</span>
+              </div>
+            </div>
+            <!-- Divider -->
+            <div class="h-px bg-border-light dark:bg-border-dark mx-6"></div>
+            <!-- Unlinked Item (Example) -->
+            <div
+              class="flex flex-col sm:flex-row sm:items-center justify-between p-6 hover:bg-background-light/50 dark:hover:bg-gray-800/50 transition-colors opacity-70"
+            >
+              <div class="flex items-center gap-4 mb-4 sm:mb-0">
+                <div
+                  class="size-12 rounded-full bg-[#1877F2] text-white shadow-sm flex items-center justify-center overflow-hidden"
+                >
+                  <span class="material-symbols-outlined text-2xl">social_leaderboard</span>
+                </div>
+                <div class="flex flex-col">
+                  <p class="text-base font-bold text-text-main dark:text-white">Facebook</p>
+                  <p class="text-sm text-text-secondary">Chưa kết nối</p>
+                </div>
+              </div>
+              <button
+                class="self-start sm:self-auto px-4 py-1.5 text-sm font-semibold text-primary border border-primary/30 rounded-full hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
+              >
+                Kết nối
+              </button>
+            </div>
+          </div>
+        </section>
+        <!-- Danger Zone / Logout -->
+        <section class="flex justify-end mt-4 pb-12">
+          <button
+            class="flex items-center gap-2 px-6 py-2.5 rounded-lg border border-red-200 dark:border-red-900/50 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors font-medium text-sm"
+          >
+            <span class="material-symbols-outlined text-lg">logout</span>
+            Đăng xuất
+          </button>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

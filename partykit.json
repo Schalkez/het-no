@@ -1,0 +1,5 @@
+{
+  "name": "chia-tien-party",
+  "main": "party/main.ts",
+  "compatibilityDate": "2025-01-01"
+}

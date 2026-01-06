@@ -1,0 +1,194 @@
+<!doctype html>
+
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chọn người dùng chia tiền</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#2b6cee',
+              'background-light': '#f6f6f8',
+              'background-dark': '#101622',
+            },
+            fontFamily: {
+              display: ['Inter', 'sans-serif'],
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              '2xl': '1rem',
+              full: '9999px',
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      /* Custom checkbox style to match the request */
+      .custom-checkbox:checked {
+        background-color: #2b6cee;
+        border-color: #2b6cee;
+        background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDoQ6M3DQabAqhnh17mYJRLx_RqJMwG-r9h7wFOdW8vvoWzSIOvVHz9kg8C5YkDiku9rg5QC1x8DxF1LBOlXClbIh-hr-FxdKzuZCEne-Fe69ILudaBXKF7YlLAIhlJWWqnoOXQJP4355X5WM_PQcVcwScZNi81xdQ042zQ-x-Cn_HSuy_DVElEogUE1cCogxydxijvFfTBWQc5S7mvHj6IwlDJuCC40AytVdhU8yApL8o2z17K-065WLvetS-H4p6AR5CjjboKP_w);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center p-4"
+  >
+    <!-- Main Card Container -->
+    <div
+      class="relative w-full max-w-[480px] bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col"
+    >
+      <!-- Header Image Area (Optional Decorative) -->
+      <div class="h-2 bg-gradient-to-r from-blue-400 to-primary w-full"></div>
+      <!-- Card Content -->
+      <div class="px-8 pt-8 pb-6 flex flex-col">
+        <!-- Title Section -->
+        <div class="text-center mb-8">
+          <div
+            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-3"
+          >
+            <span class="material-symbols-outlined text-2xl">local_pizza</span>
+          </div>
+          <h1 class="text-[#111318] text-3xl font-bold tracking-tight">Pizza $120</h1>
+          <p class="text-gray-500 text-sm mt-1">Hóa đơn ngày 24/10/2023</p>
+        </div>
+        <!-- Controls Header -->
+        <div class="flex items-center justify-between mb-4 px-2">
+          <h2 class="text-[#111318] text-base font-semibold">Ai dùng?</h2>
+          <!-- Dropdown Trigger -->
+          <button
+            class="group flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-50 hover:bg-gray-100 border border-gray-200 transition-all text-sm font-medium text-gray-700"
+          >
+            <span class="material-symbols-outlined text-lg text-primary">pie_chart</span>
+            <span>Chia đều</span>
+            <span
+              class="material-symbols-outlined text-lg text-gray-400 group-hover:text-gray-600 transition-colors"
+              >expand_more</span
+            >
+          </button>
+        </div>
+        <!-- User List -->
+        <div class="flex flex-col gap-2 mb-6">
+          <!-- User 1: An -->
+          <label
+            class="flex items-center justify-between p-3 rounded-xl border border-transparent hover:border-gray-100 hover:bg-gray-50 transition-all cursor-pointer group"
+          >
+            <div class="flex items-center gap-4">
+              <div class="relative flex items-center justify-center">
+                <input
+                  checked=""
+                  class="custom-checkbox h-6 w-6 rounded-md border-2 border-gray-300 text-primary focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all cursor-pointer"
+                  type="checkbox"
+                />
+              </div>
+              <div class="flex flex-col">
+                <span
+                  class="text-[#111318] font-medium text-base group-hover:text-primary transition-colors"
+                  >An</span
+                >
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="text-gray-500 text-sm group-hover:text-gray-800 font-medium">
+                Phải trả: <span class="text-[#111318] font-semibold">$40</span>
+              </p>
+            </div>
+          </label>
+          <!-- User 2: Bình -->
+          <label
+            class="flex items-center justify-between p-3 rounded-xl border border-transparent hover:border-gray-100 hover:bg-gray-50 transition-all cursor-pointer group"
+          >
+            <div class="flex items-center gap-4">
+              <div class="relative flex items-center justify-center">
+                <input
+                  checked=""
+                  class="custom-checkbox h-6 w-6 rounded-md border-2 border-gray-300 text-primary focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all cursor-pointer"
+                  type="checkbox"
+                />
+              </div>
+              <div class="flex flex-col">
+                <span
+                  class="text-[#111318] font-medium text-base group-hover:text-primary transition-colors"
+                  >Bình</span
+                >
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="text-gray-500 text-sm group-hover:text-gray-800 font-medium">
+                Phải trả: <span class="text-[#111318] font-semibold">$40</span>
+              </p>
+            </div>
+          </label>
+          <!-- User 3: Chi -->
+          <label
+            class="flex items-center justify-between p-3 rounded-xl border border-transparent hover:border-gray-100 hover:bg-gray-50 transition-all cursor-pointer group"
+          >
+            <div class="flex items-center gap-4">
+              <div class="relative flex items-center justify-center">
+                <input
+                  checked=""
+                  class="custom-checkbox h-6 w-6 rounded-md border-2 border-gray-300 text-primary focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all cursor-pointer"
+                  type="checkbox"
+                />
+              </div>
+              <div class="flex flex-col">
+                <span
+                  class="text-[#111318] font-medium text-base group-hover:text-primary transition-colors"
+                  >Chi</span
+                >
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="text-gray-500 text-sm group-hover:text-gray-800 font-medium">
+                Phải trả: <span class="text-[#111318] font-semibold">$40</span>
+              </p>
+            </div>
+          </label>
+        </div>
+        <!-- Divider -->
+        <div class="h-px w-full bg-gray-100 mb-6"></div>
+        <!-- Total Verification -->
+        <div class="flex items-center justify-center gap-2 mb-8">
+          <span class="text-emerald-600 text-lg font-bold">Tổng: $120</span>
+          <span class="material-symbols-outlined text-emerald-600 filled font-bold"
+            >check_circle</span
+          >
+        </div>
+        <!-- Actions -->
+        <div class="flex flex-col gap-3">
+          <button
+            class="w-full bg-gradient-to-r from-primary to-blue-600 hover:to-blue-700 text-white font-bold text-lg py-3.5 rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+          >
+            Tiếp tục
+            <span class="material-symbols-outlined text-xl">arrow_forward</span>
+          </button>
+          <button
+            class="w-full bg-transparent hover:bg-gray-50 text-gray-500 hover:text-gray-700 font-medium py-3 rounded-xl transition-colors text-base"
+          >
+            Chia chi tiết
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

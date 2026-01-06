@@ -1,0 +1,1 @@
+export { BeneficiaryCheckbox } from './BeneficiaryCheckbox'

@@ -1,0 +1,204 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Thêm dịch vụ - Modal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#2b6cee',
+              'background-light': '#f6f6f8',
+              'background-dark': '#101622',
+            },
+            fontFamily: {
+              display: ['Inter', 'sans-serif'],
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              '2xl': '1rem',
+              full: '9999px',
+            },
+          },
+        },
+      }
+    </script>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-gray-900 dark:text-white antialiased"
+  >
+    <div class="relative min-h-screen w-full flex flex-col overflow-hidden">
+      <!-- Background Content (Blurred Context) -->
+      <div
+        class="absolute inset-0 z-0 flex flex-col opacity-30 blur-[2px] pointer-events-none select-none"
+      >
+        <!-- Mock Header -->
+        <header
+          class="h-16 border-b border-gray-200 dark:border-gray-800 flex items-center px-8 bg-white dark:bg-gray-900 justify-between"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary"
+            >
+              <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+            </div>
+            <span class="font-bold text-lg">MoneySplit</span>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+        </header>
+        <!-- Mock Content -->
+        <main class="flex-1 p-8 max-w-5xl mx-auto w-full">
+          <div class="h-8 w-48 bg-gray-200 dark:bg-gray-800 rounded mb-8"></div>
+          <div class="grid grid-cols-3 gap-6">
+            <div
+              class="h-32 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-4"
+            ></div>
+            <div
+              class="h-32 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-4"
+            ></div>
+            <div
+              class="h-32 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-4"
+            ></div>
+          </div>
+        </main>
+      </div>
+      <!-- Modal Overlay -->
+      <div
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm transition-opacity"
+      >
+        <!-- Modal Container -->
+        <div
+          class="relative w-full max-w-[500px] bg-white dark:bg-[#1a202c] rounded-2xl shadow-2xl overflow-hidden transform transition-all scale-100"
+        >
+          <!-- Close Button -->
+          <button
+            class="absolute top-5 right-5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+          >
+            <span class="material-symbols-outlined text-2xl">close</span>
+          </button>
+          <!-- Modal Content -->
+          <div class="p-8 pt-10">
+            <!-- Header -->
+            <div class="mb-8 text-center sm:text-left">
+              <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white mb-2">
+                Thêm dịch vụ
+              </h2>
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                Nhập thông tin chi phí để chia sẻ với nhóm.
+              </p>
+            </div>
+            <!-- Form -->
+            <div class="space-y-6">
+              <!-- Field: Tên dịch vụ -->
+              <div class="space-y-2">
+                <label
+                  class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-200"
+                  for="service-name"
+                >
+                  Tên dịch vụ
+                </label>
+                <div class="relative rounded-lg shadow-sm">
+                  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <span class="material-symbols-outlined text-gray-400 text-[20px]"
+                      >shopping_bag</span
+                    >
+                  </div>
+                  <input
+                    class="block w-full rounded-lg border-0 py-3.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-gray-800 dark:text-white dark:ring-gray-700 dark:focus:ring-primary sm:text-sm sm:leading-6 transition-all"
+                    id="service-name"
+                    name="service-name"
+                    placeholder="Pizza"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <!-- Field: Tổng chi phí -->
+              <div class="space-y-2">
+                <label
+                  class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-200"
+                  for="total-cost"
+                >
+                  Tổng chi phí
+                </label>
+                <div class="relative rounded-lg shadow-sm">
+                  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <span class="text-gray-500 sm:text-sm font-semibold">$</span>
+                  </div>
+                  <input
+                    class="block w-full rounded-lg border-0 py-3.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-gray-800 dark:text-white dark:ring-gray-700 dark:focus:ring-primary sm:text-sm sm:leading-6 transition-all font-medium"
+                    id="total-cost"
+                    name="total-cost"
+                    placeholder="120"
+                    type="text"
+                  />
+                  <div
+                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"
+                  >
+                    <span class="text-gray-400 sm:text-sm">USD</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Additional Info (Optional visual filler for realism) -->
+              <div class="flex items-center gap-2 pt-2">
+                <div class="flex -space-x-2 overflow-hidden">
+                  <img
+                    alt="User avatar"
+                    class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-gray-800 object-cover"
+                    data-alt="Portrait of a user"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6a85Bstz0zxYIL0ykz7j0dru2DARx1MC2PxFVte2aniBQQ3OzefjZDI_BrEwv7aZWlAoTGfYiUJT0e8ws4pq7gACb_O5ujdE5p34ZvtkLCIy-bhksGmNw0pYJbrNxhEw2PF-Kou-WoghQJbPWXv79eTRp1z_IGJo7Ju9sgcVKDnCHXxsrcOhQKLJjPh_nRNhhBHeR9bknh8_xTt2KUZPdZh4ob9aB6nR_dD-PvOruomlDUq5vvhSvLYJl0MWicqr3va3nHw7LBLQ"
+                  />
+                  <img
+                    alt="User avatar"
+                    class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-gray-800 object-cover"
+                    data-alt="Portrait of a user"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnmn1NGkso-_z14hWdsqNhyttqALuqi37jcJCwjq3Nj2E8GpRkE8NIs7sW96FkSzxGQ6-jcLUELSMnvlZuwL_LGviU4xuXkL1QxKPpk0XJt8wdJUa7YP8a4meJ_g7IE4YPeef3RuIR_FsTBsOSLZXtq2U0xuBT6Ys1kGv7-AlpBK2zUj77UrAispc0y92fb8sK51BEvUTUr-d0uBdTsqVaT4MwJaSEeisBUd1p9Fb7avNcElAbpbJssI3N6kDrFedwRyLIPTNNWSc"
+                  />
+                  <div
+                    class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-gray-800 bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-xs font-medium text-gray-500 dark:text-gray-300"
+                  >
+                    +3
+                  </div>
+                </div>
+                <span class="text-xs text-gray-500 dark:text-gray-400"
+                  >Sẽ được chia đều cho 5 người</span
+                >
+              </div>
+            </div>
+            <!-- Footer / Actions -->
+            <div class="mt-8">
+              <button
+                class="group relative flex w-full justify-center rounded-xl bg-gradient-to-r from-primary to-[#4f8aff] px-3 py-4 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 hover:to-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-all active:scale-[0.98]"
+                type="button"
+              >
+                Tiếp tục
+                <span
+                  class="material-symbols-outlined ml-2 text-sm pt-0.5 group-hover:translate-x-1 transition-transform"
+                  >arrow_forward</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

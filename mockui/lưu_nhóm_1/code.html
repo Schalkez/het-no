@@ -1,0 +1,468 @@
+<!doctype html>
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chi tiết nhóm (Real-time)</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#3b82f6',
+              'primary-dark': '#2563eb',
+              'background-light': '#f6f6f8',
+              'background-dark': '#111421',
+              'surface-light': '#ffffff',
+              'surface-dark': '#1e2130',
+            },
+            fontFamily: {
+              display: ['Inter', 'sans-serif'],
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              '2xl': '1rem',
+              full: '9999px',
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #374151;
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #4b5563;
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-[#0e101b] dark:text-white antialiased h-screen flex flex-col overflow-hidden"
+  >
+    <header
+      class="h-16 flex-none bg-surface-light dark:bg-surface-dark border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 z-30 shadow-sm relative"
+    >
+      <div class="flex items-center gap-4">
+        <button
+          class="flex items-center gap-1.5 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors text-sm font-medium px-2 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5"
+        >
+          <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+          Dashboard
+        </button>
+        <div class="h-6 w-px bg-gray-200 dark:bg-gray-700 mx-2"></div>
+        <div class="flex items-center gap-2 group cursor-pointer">
+          <h1 class="text-lg font-bold tracking-tight">Ăn sáng team</h1>
+          <span
+            class="material-symbols-outlined text-gray-400 group-hover:text-primary text-[18px] transition-colors"
+            >edit</span
+          >
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="flex -space-x-2 items-center">
+          <div
+            class="relative inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-[#1e2130] overflow-hidden border-2 border-green-500"
+          >
+            <img
+              alt="An"
+              class="h-full w-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4Q8KCpfOGPcnkMPmTe7fFsWWrFWIowZjhZl5tkJjgQOoVlMcw_wVSAeRCUNByW-39d28HC_pxa7dOtBZ83LYjnabUr6kHhphC9c8dUReTbbzDIUjW3PscCtkf3Fza95SVKp0Zg6WTluoT2TAYRnCeBhkajJP5K29HXUEIsl_3hPpooFElj0niBNxycwCpNAImAssbgXeSR-2z4OSDvVfQ7iLJzz05zbwOUT1rmwCn76pkPWJLELF8Nhn-VvYq6pya79OihuAHgAc"
+            />
+          </div>
+          <div
+            class="relative inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-[#1e2130] overflow-hidden border-2 border-purple-500"
+          >
+            <img
+              alt="Bình"
+              class="h-full w-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxMUlvceXFnQUQyZY45DSohX39wmhOSH0B4QQqZ0tZndnTYXZzHoyWViz1ol9PmATPlTjp-_3GKwchah0wx46MFe3__9qrwfYqnuM3A5q3Z6hj46KZ1Ak_XAZCMhVMkremAWeQPUCNGUSkyTQyNJgafvlN8pgpaiss2ZOjSwhV2HSlEA37MlFI51w9SlMSV2zZ-yY180p1eC_aSYUul2sOhQia6PubDkI2Vlxe-oXK1-_5utdrluaGbkfJz2oAU5Mp1bfBaimC4so"
+            />
+          </div>
+          <div
+            class="relative inline-block h-9 w-9 rounded-full ring-2 ring-white dark:ring-[#1e2130] overflow-hidden border-2 border-orange-500"
+          >
+            <img
+              alt="Chi"
+              class="h-full w-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQVuHbFv-DCHkSk7oX5GVIGIcPl4HtY-neECLn1WDzlO-noTeFCjhNOExu3WY_SfSJlJXFceUNr1bEIn3CFm_5slSqIDiXw4AOB_f77A5MwOgqbJUoa5OvYrxAuqmxpL1pbkY4j1myaQgbnbTp4uZMnTICvdf0_Rz8sF7ZZZUIdDxiNBOzqY9KWOXshxuDrIVPoa9ApmRwAEEX8z4IIJtkj_efBRMz8smSKdmDtWCLLFFTfPC0gl0i3cerScSvPPlCBBPf9-MvNjA"
+            />
+          </div>
+          <button
+            class="h-9 w-9 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 ring-2 ring-white dark:ring-[#1e2130] text-xs font-medium text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          >
+            +2
+          </button>
+        </div>
+        <div class="h-6 w-px bg-gray-200 dark:bg-gray-700 mx-2"></div>
+        <button
+          class="p-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 rounded-full transition-colors"
+        >
+          <span class="material-symbols-outlined">settings</span>
+        </button>
+        <button
+          class="bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-sm shadow-blue-500/30 transition-all"
+        >
+          Chia sẻ
+        </button>
+      </div>
+    </header>
+    <div class="flex flex-1 overflow-hidden">
+      <aside
+        class="w-[240px] flex-none bg-surface-light dark:bg-[#161824] border-r border-gray-200 dark:border-gray-800 flex flex-col z-20"
+      >
+        <div class="p-4 border-b border-gray-100 dark:border-gray-800/50">
+          <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
+            Thành viên
+          </h2>
+          <div class="space-y-1">
+            <div
+              class="flex items-center gap-3 p-2 rounded-lg bg-blue-50/50 dark:bg-blue-900/10 cursor-pointer"
+            >
+              <div class="relative">
+                <img
+                  class="h-8 w-8 rounded-full"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUq-b2A3c7bvRPx0HvlaPPOOjwIgVW2OdEg47PeDVL4SEaE-luGGfDkp94flSJlz09KaU86QrEGtQsd-3R1gumZlZQTe8vUqai1b7cyvNXylH_N6cvJv1GeIwbmo4sFtS0CRyLEH7YjY6lJug75RzzJkUAyZJXOuItNyd7NJLFHB4MOkxTWN4MAC0H7eB7I29KIFDmmGWf2eaWLATDSKVYEeWBpAZpJxk41MUfcO6tt5SNeX6jtx5_qzynZV0_2F7k2XSNWHx1pX8"
+                />
+                <span
+                  class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-white dark:ring-[#161824]"
+                ></span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">An</p>
+                <p class="text-[10px] text-green-600 dark:text-green-400 truncate">Trực tuyến</p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer transition-colors"
+            >
+              <div class="relative">
+                <img
+                  class="h-8 w-8 rounded-full"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjIaVE6rh75pFdtx42omoKn_nGAD4wkkkyDDKaFdlkVkdg18A8OgZEBRTmSkGiYt3qdv9C_cdH4GlrJ3h2MNc4Jbj7IJeho_mguHCQYK8GkVtHoikB_PWW5x6EjHRBl9nx0f0aeZ0ECBF2SF1Z4L2iKUcJ5xwDeFeisoBaYQN4nKJQzvV0dMNEnnxnL0T-8k_1e-aR5cVAx2FXVCi8zMAm0YA0-k3w44VSqRdwU5c-NZluSPvTpNceiBsYWDCykrZVU-lNtcIZNOU"
+                />
+                <span
+                  class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-white dark:ring-[#161824]"
+                ></span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-gray-900 dark:text-gray-300 truncate">Bình</p>
+                <p class="text-[10px] text-gray-500 dark:text-gray-500 truncate">Đang nhập...</p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer transition-colors"
+            >
+              <div class="relative">
+                <img
+                  class="h-8 w-8 rounded-full"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHRG8lLduu5rp3xbZeDEh3XDZO8JiW9C1NbwPj-mBC61a7EXHiJzJd8HIpQ2VWSw48QICTjiNiGbUl4o183aAFQZ5CkMfImb2r2GoSWx8EA6Lkxreg8t_Z1W94k8MKkGHaNFSDJ8D_IgN-Ut75GrKO0K2pSNtYb59kergFuAev3xqh0GutKhXFusoUrtStkartN76GviLu9SYLlg2LBbmCa2_m0ahGEH5yi2zbDpxJWtuar_HQKmJj2e64a3Y94P9caIOltnsu_Vg"
+                />
+                <span
+                  class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-gray-300 ring-2 ring-white dark:ring-[#161824]"
+                ></span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-gray-900 dark:text-gray-300 truncate">Chi</p>
+                <p class="text-[10px] text-gray-400 dark:text-gray-600 truncate">15 phút trước</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 mt-auto">
+          <button
+            class="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-gray-300 dark:border-gray-600 p-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:border-primary hover:text-primary hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all"
+          >
+            <span class="material-symbols-outlined text-[18px]">add</span>
+            Thêm thành viên
+          </button>
+        </div>
+      </aside>
+      <main class="flex-1 bg-[#f3f4f6] dark:bg-[#0e101b] relative overflow-hidden flex flex-col">
+        <div
+          class="absolute inset-0 z-0 opacity-[0.4] pointer-events-none"
+          style="
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+          "
+        ></div>
+        <div class="relative z-10 px-8 py-6 flex items-center justify-between">
+          <div class="flex gap-3">
+            <button
+              class="flex items-center gap-2 bg-white dark:bg-surface-dark text-gray-700 dark:text-white px-4 py-2.5 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all text-sm font-semibold"
+            >
+              <span class="material-symbols-outlined text-gray-400">person_add</span>
+              Thêm người
+            </button>
+            <button
+              class="flex items-center gap-2 bg-white dark:bg-surface-dark text-primary px-4 py-2.5 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all text-sm font-semibold"
+            >
+              <span class="material-symbols-outlined text-primary">receipt_long</span>
+              Thêm dịch vụ
+            </button>
+          </div>
+          <div class="flex items-center gap-2 text-sm text-gray-500">
+            <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+            Đồng bộ hóa realtime
+          </div>
+        </div>
+        <div class="flex-1 overflow-y-auto px-8 pb-32 relative z-10">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+              class="group relative bg-white dark:bg-surface-dark rounded-2xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-primary/50 transition-all cursor-pointer"
+            >
+              <div
+                class="absolute -top-3 -right-3 h-8 w-8 bg-white dark:bg-surface-dark rounded-full shadow-md border border-gray-100 dark:border-gray-700 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity scale-75 group-hover:scale-100"
+              >
+                <span class="material-symbols-outlined text-gray-400 hover:text-red-500 text-[18px]"
+                  >delete</span
+                >
+              </div>
+              <div class="flex justify-between items-start mb-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="h-10 w-10 rounded-xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400"
+                  >
+                    <span class="material-symbols-outlined">restaurant</span>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-gray-900 dark:text-white">Ăn sáng</h3>
+                    <p class="text-xs text-gray-500">Hôm nay, 08:30</p>
+                  </div>
+                </div>
+                <span class="text-lg font-bold text-gray-900 dark:text-white">$100</span>
+              </div>
+              <div class="space-y-2 mb-4">
+                <label
+                  class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 transition-colors cursor-pointer group/check"
+                >
+                  <input
+                    checked=""
+                    class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                    type="checkbox"
+                  />
+                  <img
+                    class="h-6 w-6 rounded-full"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA5dUjk00Qa5c2Mn0S1GKRuxnFdBpq0zpd2YKtxgNBxM1p39DzNGTyeBkIgGgxO985jwk7Vh_FBv4TPLTdxZOKbq3Y1y9ofnVM9m7oxVjcMEH-iRSk7gx6LpSB-VAi_An4xuY0713ASve5h0mDJlFnpfKR_63NoRsh0bNjkCR-g-rx8RL2w25NL2QYet-wn3mhnmgBRQs9XA6UHWom1sdJjH_dHiPErHj7U-2Gp3tQ71ym9G51by979iKn36n7J5qkoJz9dTfACTc"
+                  />
+                  <span class="text-sm text-gray-700 dark:text-gray-300 flex-1">An</span>
+                  <span
+                    class="text-xs font-semibold text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded"
+                    >$50</span
+                  >
+                </label>
+                <label
+                  class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 transition-colors cursor-pointer group/check"
+                >
+                  <input
+                    checked=""
+                    class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                    type="checkbox"
+                  />
+                  <img
+                    class="h-6 w-6 rounded-full"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyo6CU9x-pFtjVhQC0hrgRGCZxdUSWFo0ZzglBcHfd0iv2awxVUz6gNhuz-L_BAGz5zh6Cbpx1Abqe8oh2ASdhVdF8UkhKP8Zf5D18VrPecOC36Vrx_UZ_rh3GALgZ6CNTaZ9_Mm0_LIVj1gh12YwFAPPMJhSPwvzrIHMUqwra2gxK4mLIWjriwEeNPxcvokbxivZbTiUt5p0smlXFi4MhmACdJPQ66zY__HwsdkcgchWh6ea6tyCN9t4P-dUG3OyBosL3Xx-Ffko"
+                  />
+                  <span class="text-sm text-gray-700 dark:text-gray-300 flex-1">Bình</span>
+                  <span
+                    class="text-xs font-semibold text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded"
+                    >$50</span
+                  >
+                </label>
+              </div>
+              <div
+                class="pt-3 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between text-xs"
+              >
+                <span class="text-gray-500">Người trả:</span>
+                <div class="flex items-center gap-1 font-medium text-gray-700 dark:text-gray-300">
+                  An $50, Bình $50
+                </div>
+              </div>
+            </div>
+            <div
+              class="relative bg-white dark:bg-surface-dark rounded-2xl p-5 shadow-sm border-2 border-primary/30 dark:border-primary/30 ring-4 ring-primary/5"
+            >
+              <div
+                class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full shadow-sm"
+              >
+                Đang chỉnh sửa
+              </div>
+              <div class="flex justify-between items-start mb-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="h-10 w-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400"
+                  >
+                    <span class="material-symbols-outlined">local_taxi</span>
+                  </div>
+                  <div class="h-10 flex flex-col justify-center">
+                    <div
+                      class="h-4 w-24 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mb-1"
+                    ></div>
+                    <div class="h-3 w-16 bg-gray-100 dark:bg-gray-800 rounded animate-pulse"></div>
+                  </div>
+                </div>
+                <div class="h-6 w-12 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+              </div>
+              <div class="space-y-2 mb-4 opacity-50">
+                <div class="flex items-center gap-3 p-2">
+                  <div class="h-4 w-4 rounded bg-gray-200 dark:bg-gray-700"></div>
+                  <div class="h-6 w-6 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+                  <div class="h-4 flex-1 bg-gray-200 dark:bg-gray-700 rounded"></div>
+                </div>
+                <div class="flex items-center gap-3 p-2">
+                  <div class="h-4 w-4 rounded bg-gray-200 dark:bg-gray-700"></div>
+                  <div class="h-6 w-6 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+                  <div class="h-4 flex-1 bg-gray-200 dark:bg-gray-700 rounded"></div>
+                </div>
+              </div>
+              <div class="absolute bottom-1/3 right-1/4 flex flex-col items-start z-20">
+                <svg
+                  class="text-purple-500 drop-shadow-md"
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19177L14.8418 17.4199L6.57595 17.4812L5.65376 12.3673Z"
+                    fill="currentColor"
+                    stroke="white"
+                    stroke-width="1"
+                  ></path>
+                </svg>
+                <div
+                  class="bg-purple-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded ml-3 shadow-sm"
+                >
+                  Bình
+                </div>
+              </div>
+            </div>
+            <button
+              class="border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 text-gray-400 hover:text-primary hover:border-primary hover:bg-blue-50/30 dark:hover:bg-blue-900/10 transition-all group"
+            >
+              <div
+                class="h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 group-hover:bg-white dark:group-hover:bg-surface-dark flex items-center justify-center transition-colors shadow-sm"
+              >
+                <span class="material-symbols-outlined text-2xl">add</span>
+              </div>
+              <span class="text-sm font-medium">Thêm chi tiêu mới</span>
+            </button>
+          </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 w-full max-w-md px-4">
+          <div
+            class="bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-2xl shadow-2xl p-4 flex items-center justify-between backdrop-blur-md bg-opacity-90 dark:bg-opacity-90 border border-white/10 dark:border-black/5"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="h-10 w-10 rounded-full bg-yellow-400 flex items-center justify-center text-yellow-900 shadow-sm"
+              >
+                <span class="material-symbols-outlined text-xl">lightbulb</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold">An trả Bình $25</p>
+                <p class="text-xs text-gray-400 dark:text-gray-500">Để cân bằng chi tiêu</p>
+              </div>
+            </div>
+            <button
+              class="px-4 py-2 bg-white/10 dark:bg-black/5 hover:bg-white/20 dark:hover:bg-black/10 rounded-lg text-sm font-semibold transition-colors"
+            >
+              Xem chi tiết
+            </button>
+          </div>
+        </div>
+      </main>
+      <aside
+        class="w-[280px] flex-none bg-surface-light dark:bg-[#161824] border-l border-gray-200 dark:border-gray-800 flex flex-col z-20"
+      >
+        <div
+          class="p-4 border-b border-gray-100 dark:border-gray-800/50 flex justify-between items-center"
+        >
+          <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Hoạt động</h2>
+          <button class="text-gray-400 hover:text-gray-600">
+            <span class="material-symbols-outlined text-[18px]">filter_list</span>
+          </button>
+        </div>
+        <div class="flex-1 overflow-y-auto p-4 space-y-6">
+          <div class="relative pl-4 border-l-2 border-purple-500">
+            <div
+              class="absolute -left-[5px] top-0 h-2.5 w-2.5 rounded-full bg-purple-500 ring-4 ring-purple-100 dark:ring-purple-900/30 animate-pulse"
+            ></div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-bold text-gray-900 dark:text-white">Bình</span>
+              <span
+                class="text-[10px] text-purple-600 dark:text-purple-400 font-medium bg-purple-50 dark:bg-purple-900/20 px-1.5 py-0.5 rounded flex items-center gap-1"
+              >
+                <span class="material-symbols-outlined text-[10px]">bolt</span>
+                Đang sửa
+              </span>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Đang cập nhật chi phí Taxi...</p>
+          </div>
+          <div class="relative pl-4 border-l-2 border-gray-200 dark:border-gray-700">
+            <div
+              class="absolute -left-[5px] top-0 h-2.5 w-2.5 rounded-full bg-gray-300 dark:bg-gray-600 ring-4 ring-white dark:ring-[#161824]"
+            ></div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-bold text-gray-900 dark:text-white">An</span>
+              <span class="text-[10px] text-gray-400">2 phút trước</span>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              Đã thêm
+              <span class="font-medium text-gray-900 dark:text-gray-200">Ăn sáng</span> ($100)
+            </p>
+          </div>
+          <div class="relative pl-4 border-l-2 border-gray-200 dark:border-gray-700">
+            <div
+              class="absolute -left-[5px] top-0 h-2.5 w-2.5 rounded-full bg-gray-300 dark:bg-gray-600 ring-4 ring-white dark:ring-[#161824]"
+            ></div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-bold text-gray-900 dark:text-white">Chi</span>
+              <span class="text-[10px] text-gray-400">15 phút trước</span>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Đã tham gia nhóm</p>
+          </div>
+          <div class="relative pl-4 border-l-2 border-gray-200 dark:border-gray-700 opacity-60">
+            <div
+              class="absolute -left-[5px] top-0 h-2.5 w-2.5 rounded-full bg-gray-300 dark:bg-gray-600 ring-4 ring-white dark:ring-[#161824]"
+            ></div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-bold text-gray-900 dark:text-white">An</span>
+              <span class="text-[10px] text-gray-400">1 giờ trước</span>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Đã tạo nhóm "Ăn sáng team"</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>

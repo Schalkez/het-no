@@ -1,0 +1,362 @@
+<!doctype html>
+
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chia chi tiết nâng cao</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#2b6cee',
+              'background-light': '#f6f6f8',
+              'background-dark': '#101622',
+            },
+            fontFamily: {
+              display: ['Inter', 'sans-serif'],
+            },
+            borderRadius: { DEFAULT: '0.25rem', lg: '0.5rem', xl: '0.75rem', full: '9999px' },
+          },
+        },
+      }
+    </script>
+    <style>
+      /* Custom scrollbar for cleaner look inside the modal if needed */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: #dbdfe6;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center p-4 font-display text-[#111318]"
+  >
+    <!-- Main Modal Container -->
+    <div
+      class="relative w-full max-w-[600px] bg-white rounded-xl shadow-xl overflow-hidden flex flex-col max-h-[90vh]"
+    >
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 py-5 border-b border-[#dbdfe6]">
+        <h1 class="text-xl font-bold leading-tight tracking-[-0.015em] text-[#111318]">
+          Chia chi tiết nâng cao
+        </h1>
+        <button class="text-[#616f89] hover:text-[#111318] transition-colors">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <!-- Scrollable Content -->
+      <div class="flex-1 overflow-y-auto p-6 space-y-6">
+        <!-- Section 1: Ai hưởng lợi? -->
+        <div class="border border-[#dbdfe6] rounded-lg p-4 bg-white shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <span
+                class="flex items-center justify-center w-6 h-6 rounded-full bg-[#111318] text-white text-xs font-bold"
+                >1</span
+              >
+              <h3 class="text-base font-bold text-[#111318]">Ai hưởng lợi?</h3>
+            </div>
+            <div class="relative">
+              <select
+                class="appearance-none bg-[#f6f6f8] border-none text-sm font-medium text-[#111318] py-1.5 pl-3 pr-8 rounded-md focus:ring-1 focus:ring-primary cursor-pointer outline-none"
+              >
+                <option>Theo số lượng</option>
+                <option>Theo phần trăm</option>
+                <option>Chia đều</option>
+              </select>
+              <span
+                class="material-symbols-outlined absolute right-1 top-1/2 -translate-y-1/2 text-sm pointer-events-none text-[#616f89]"
+                >expand_more</span
+              >
+            </div>
+          </div>
+          <!-- List Items -->
+          <div class="space-y-3">
+            <!-- Item 1: An -->
+            <div
+              class="flex items-center justify-between p-2 rounded-md hover:bg-gray-50 transition-colors"
+            >
+              <div class="flex items-center gap-3">
+                <label class="flex items-center cursor-pointer relative">
+                  <input
+                    checked=""
+                    class="peer h-5 w-5 rounded border-2 border-[#dbdfe6] text-primary focus:ring-0 transition-all checked:border-primary checked:bg-primary"
+                    type="checkbox"
+                  />
+                  <span
+                    class="material-symbols-outlined absolute text-white text-sm pointer-events-none opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    >check</span
+                  >
+                </label>
+                <div>
+                  <p class="text-sm font-semibold text-[#111318]">An</p>
+                  <p class="text-xs text-[#616f89]">$20/miếng</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="text-sm font-medium text-[#111318] w-12 text-right">$40</span>
+                <div class="flex items-center bg-[#f0f2f4] rounded-full p-0.5">
+                  <button
+                    class="w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-sm text-[#111318] hover:bg-gray-50 text-sm font-bold"
+                  >
+                    -
+                  </button>
+                  <input
+                    class="w-8 bg-transparent border-none text-center text-sm font-medium p-0 focus:ring-0 [appearance:textfield] [&amp;::-webkit-inner-spin-button]:appearance-none"
+                    type="number"
+                    value="2"
+                  />
+                  <button
+                    class="w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-sm text-[#111318] hover:bg-gray-50 text-sm font-bold"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Item 2: Bình -->
+            <div
+              class="flex items-center justify-between p-2 rounded-md hover:bg-gray-50 transition-colors"
+            >
+              <div class="flex items-center gap-3">
+                <label class="flex items-center cursor-pointer relative">
+                  <input
+                    checked=""
+                    class="peer h-5 w-5 rounded border-2 border-[#dbdfe6] text-primary focus:ring-0 transition-all checked:border-primary checked:bg-primary"
+                    type="checkbox"
+                  />
+                  <span
+                    class="material-symbols-outlined absolute text-white text-sm pointer-events-none opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    >check</span
+                  >
+                </label>
+                <div>
+                  <p class="text-sm font-semibold text-[#111318]">Bình</p>
+                  <p class="text-xs text-[#616f89]">$20/miếng</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="text-sm font-medium text-[#111318] w-12 text-right">$60</span>
+                <div class="flex items-center bg-[#f0f2f4] rounded-full p-0.5">
+                  <button
+                    class="w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-sm text-[#111318] hover:bg-gray-50 text-sm font-bold"
+                  >
+                    -
+                  </button>
+                  <input
+                    class="w-8 bg-transparent border-none text-center text-sm font-medium p-0 focus:ring-0 [appearance:textfield] [&amp;::-webkit-inner-spin-button]:appearance-none"
+                    type="number"
+                    value="3"
+                  />
+                  <button
+                    class="w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-sm text-[#111318] hover:bg-gray-50 text-sm font-bold"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Item 3: Chi -->
+            <div
+              class="flex items-center justify-between p-2 rounded-md hover:bg-gray-50 transition-colors"
+            >
+              <div class="flex items-center gap-3">
+                <label class="flex items-center cursor-pointer relative">
+                  <input
+                    checked=""
+                    class="peer h-5 w-5 rounded border-2 border-[#dbdfe6] text-primary focus:ring-0 transition-all checked:border-primary checked:bg-primary"
+                    type="checkbox"
+                  />
+                  <span
+                    class="material-symbols-outlined absolute text-white text-sm pointer-events-none opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    >check</span
+                  >
+                </label>
+                <div>
+                  <p class="text-sm font-semibold text-[#111318]">Chi</p>
+                  <p class="text-xs text-[#616f89]">$20/miếng</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="text-sm font-medium text-[#111318] w-12 text-right">$20</span>
+                <div class="flex items-center bg-[#f0f2f4] rounded-full p-0.5">
+                  <button
+                    class="w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-sm text-[#111318] hover:bg-gray-50 text-sm font-bold"
+                  >
+                    -
+                  </button>
+                  <input
+                    class="w-8 bg-transparent border-none text-center text-sm font-medium p-0 focus:ring-0 [appearance:textfield] [&amp;::-webkit-inner-spin-button]:appearance-none"
+                    type="number"
+                    value="1"
+                  />
+                  <button
+                    class="w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-sm text-[#111318] hover:bg-gray-50 text-sm font-bold"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Footer Summary -->
+          <div
+            class="mt-4 pt-3 border-t border-dashed border-[#dbdfe6] flex items-center justify-end text-sm"
+          >
+            <span
+              class="text-[#10b981] font-medium flex items-center gap-1 bg-[#10b981]/10 px-2 py-1 rounded"
+            >
+              Tổng: 6 miếng = $120 <span class="material-symbols-outlined text-base">check</span>
+            </span>
+          </div>
+        </div>
+        <!-- Section 2: Ai trả tiền? -->
+        <div class="border border-[#dbdfe6] rounded-lg p-4 bg-white shadow-sm">
+          <div class="flex items-center gap-3 mb-5">
+            <span
+              class="flex items-center justify-center w-6 h-6 rounded-full bg-[#111318] text-white text-xs font-bold"
+              >2</span
+            >
+            <h3 class="text-base font-bold text-[#111318]">Ai trả tiền?</h3>
+          </div>
+          <div class="grid grid-cols-1 gap-3">
+            <!-- Input: An -->
+            <div class="flex items-center justify-between gap-4">
+              <label class="text-sm font-medium text-[#111318] w-20">An</label>
+              <div class="relative flex-1">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#616f89]">$</span>
+                <input
+                  class="w-full pl-6 pr-3 py-2 border border-[#dbdfe6] rounded-md text-sm text-[#111318] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-shadow"
+                  type="number"
+                  value="80"
+                />
+              </div>
+            </div>
+            <!-- Input: Bình -->
+            <div class="flex items-center justify-between gap-4">
+              <label class="text-sm font-medium text-[#111318] w-20">Bình</label>
+              <div class="relative flex-1">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#616f89]">$</span>
+                <input
+                  class="w-full pl-6 pr-3 py-2 border border-[#dbdfe6] rounded-md text-sm text-[#111318] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-shadow"
+                  type="number"
+                  value="40"
+                />
+              </div>
+            </div>
+            <!-- Input: Chi -->
+            <div class="flex items-center justify-between gap-4">
+              <label class="text-sm font-medium text-[#111318] w-20">Chi</label>
+              <div class="relative flex-1">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#616f89]">$</span>
+                <input
+                  class="w-full pl-6 pr-3 py-2 border border-[#dbdfe6] rounded-md text-sm text-[#616f89] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-shadow"
+                  type="number"
+                  value="0"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Footer Summary & Tip -->
+          <div class="mt-4 pt-3 border-t border-dashed border-[#dbdfe6]">
+            <div class="flex items-center justify-between mb-3">
+              <!-- Tip Box -->
+              <div
+                class="flex items-center gap-2 text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-md border border-primary/20"
+              >
+                <span class="material-symbols-outlined text-base fill-current">lightbulb</span>
+                <span class="font-medium">Tip: Có thể 1 người trả hết</span>
+              </div>
+              <span class="text-[#10b981] text-sm font-medium flex items-center gap-1">
+                Tổng đã trả: $120 / $120
+                <span class="material-symbols-outlined text-base">check</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Section 3: Kết quả -->
+        <div class="border border-[#dbdfe6] rounded-lg p-4 bg-white shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="flex items-center justify-center w-6 h-6 rounded-full bg-[#111318] text-white text-xs font-bold"
+              >3</span
+            >
+            <h3 class="text-base font-bold text-[#111318]">Kết quả</h3>
+          </div>
+          <div class="space-y-3">
+            <!-- Result: An -->
+            <div
+              class="flex items-center justify-between p-3 rounded bg-blue-50 border border-blue-100"
+            >
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-xl">monetization_on</span>
+                <span class="text-sm font-bold text-[#111318]">An</span>
+              </div>
+              <div class="text-sm text-[#111318]">
+                Trả $80 - Phải trả $40 =
+                <span class="font-bold text-primary text-base ml-1">+$40</span>
+              </div>
+            </div>
+            <!-- Result: Bình -->
+            <div
+              class="flex items-center justify-between p-3 rounded bg-orange-50 border border-orange-100"
+            >
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-orange-500 text-xl">check_circle</span>
+                <span class="text-sm font-bold text-[#111318]">Bình</span>
+              </div>
+              <div class="text-sm text-orange-600 font-bold text-base">-$20</div>
+            </div>
+            <!-- Result: Chi -->
+            <div
+              class="flex items-center justify-between p-3 rounded bg-orange-50 border border-orange-100"
+            >
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-orange-500 text-xl">warning</span>
+                <span class="text-sm font-bold text-[#111318]">Chi</span>
+              </div>
+              <div class="text-sm text-orange-600 font-bold text-base">-$20</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Actions -->
+      <div
+        class="px-6 py-5 border-t border-[#dbdfe6] bg-white flex items-center justify-between gap-4"
+      >
+        <button
+          class="flex-1 h-12 flex items-center justify-center rounded-lg bg-gray-100 text-[#111318] text-base font-semibold hover:bg-gray-200 transition-colors"
+        >
+          Huỷ
+        </button>
+        <button
+          class="flex-1 h-12 flex items-center justify-center rounded-lg bg-gradient-to-r from-primary to-blue-500 text-white text-base font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all transform active:scale-[0.98]"
+        >
+          Lưu
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

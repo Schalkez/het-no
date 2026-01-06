@@ -1,0 +1,1 @@
+export { BeneficiaryHeader } from './BeneficiaryHeader'

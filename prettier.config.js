@@ -1,10 +1,11 @@
 /** @type {import('prettier').Config} */
 const config = {
-  plugins: ['prettier-plugin-svelte'],
   printWidth: 100,
   singleQuote: true,
-  semi: true,
-  trailingComma: 'none'
-};
+  semi: false,
+  trailingComma: 'es5',
+  tabWidth: 2,
+  useTabs: false,
+}
 
-export default config;
+export default config

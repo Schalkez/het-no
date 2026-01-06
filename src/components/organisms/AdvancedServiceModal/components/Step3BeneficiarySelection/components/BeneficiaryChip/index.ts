@@ -1,0 +1,1 @@
+export { BeneficiaryChip } from './BeneficiaryChip'
